@@ -2,210 +2,144 @@
 function getSchema()
 {
     return [
-        'news' => [
-          'menuName' => 'Новости',
-          'fields'  => [
+        'services' => [
+            'menuName' => 'Услуги',
+            'fields' => [
                 'title' => [
-                 'name' => 'Заголовок новости',
-                  'element' => 'input',
-                  'type' => 'text',
-                  'required' => true,
+                    'name' => 'Заголовок услуги',
+                    'element' => 'input',
+                    'type' => 'text',
+                    'required' => true,
                 ],
-               'text' => [
-                 'name' => 'Текст новости',
-                  'element' => 'textarea',
-                  'type' => 'text',
-                  'required' => true,
+
+                'text' => [
+                    'name' => 'Текст услуги',
+                    'element' => 'textarea',
+                    'type' => 'text',
+                    'required' => true,
                 ],
-               'date' => [
-                 'name' => 'Дата загрузки новости',
-                  'element' => 'input',
-                  'type' => 'date',
-                  'required' => true,
+
+                'price' => [
+                    'name' => 'Цена услуги',
+                    'element' => 'input',
+                    'type' => 'number',
+                    'required' => true,
                 ],
-               'img' => [
-                 'name' => 'Картинки новости',
-                  'element' => 'input',
-                  'type' => 'file',
-                  'required' => true,
+
+                'img' => [
+                    'name' => 'Картинки услуги',
+                    'element' => 'input',
+                    'type' => 'file',
+                    'required' => true,
                 ],
             ],
         ],
-    
-        'events' => [
-          'menuName' => 'Мероприятия',
-          'fields'  => [
-              'title' => [
-               'name' => 'Заголовок мероприятия',
-                'element' => 'input',
-                'type' => 'text',
-                'required' => true,
-              ],
-             'text' => [
-               'name' => 'Текст мероприятия',
-                'element' => 'textarea',
-                'type' => 'text',
-                'required' => true,
-              ],
-             'date' => [
-               'name' => 'Дата мероприятия',
-                'element' => 'input',
-                'type' => 'date',
-                'required' => true,
-              ],
-             'img' => [
-               'name' => 'Картинки мероприятия',
-                'element' => 'input',
-                'type' => 'file',
-                'required' => true,
-              ],
-            ],
-        ],
-    
-        'works' => [
-          'menuName' => 'Работы студентов',
-          'fields'  => [
-             'tags' => [
-               'name' => 'Предмет',
-                'element' => 'input',
-                'type' => 'hidden',
-               'data' => [
-                  'Искусственный интеллект',
-                  'Графический дизайн',
-                  'Робототехника',
-                  'ЧПУ программирование',
-                  'Векторная графика',
-                  'Информатика',
-                  'Основы электроники',
+        'pricelist' => [
+            'menuName' => 'Прайс лист',
+            'fields' => [
+                'title' => [
+                    'name' => 'Выбор услуги',
+                    'element' => 'select',
+                    'options' => 'services',
+                    'required' => true,
                 ],
-               'selectOne' => true,
-                'required' => true,
-              ],
-          
-             'img' => [
-               'name' => 'Изображения/фотографии',
-                'element' => 'input',
-                'type' => 'file',
-                'required' => true,
-              ],
+
+                'name' => [
+                    'name' => 'Название',
+                    'element' => 'input',
+                    'type' => 'text',
+                    'required' => true,
+                ],
+                'type' => [
+                    'name' => 'Тип',
+                    'element' => 'input',
+                    'type' => 'text',
+                    'required' => true,
+                ],
+                'price' => [
+                    'name' => 'Цена',
+                    'element' => 'input',
+                    'type' => 'number',
+                    'required' => true,
+                ],
             ],
         ],
-    
-        'photos' => [
-          'menuName' => 'Фотогалерея',
-          'fields'  => [
-         'img' => [
-           'name' => 'Изображения/фотографии',
-            'element' => 'input',
-            'type' => 'file',
-            'required' => true,
-          ],
-        ],
-        ],
-    
-        'teachers' => [
-          'menuName' => 'Преподаватели',
-          'fields'  => [
-          'title' => [
-           'name' => 'Имя преподователя',
-            'element' => 'input',
-            'type' => 'text',
-            'required' => true,
-          ],
-         'tags' => [
-           'name' => 'Предмет',
-            'element' => 'input',
-            'type' => 'hidden',
-           'data' => [
-              'Искусственный интеллект',
-              'Графический дизайн',
-              'Робототехника',
-              'ЧПУ программирование',
-              'Векторная графика',
-              'Информатика',
-              'Основы электроники',
+        'shares' => [
+            'menuName' => 'Акции',
+            'fields' => [
+                'title' => [
+                    'name' => 'Заголовок акции',
+                    'element' => 'input',
+                    'type' => 'text',
+                    'required' => true,
+                ],
+
+                'oldprice' => [
+                    'name' => 'Старая цена',
+                    'element' => 'input',
+                    'type' => 'number',
+                    'required' => true,
+                ],
+                'newprice' => [
+                    'name' => 'Новая цена',
+                    'element' => 'input',
+                    'type' => 'number',
+                    'required' => true,
+                ],
+
+                'img' => [
+                    'name' => 'Картинка акции',
+                    'element' => 'input',
+                    'type' => 'file',
+                    'required' => true,
+                ],
             ],
-           'selectOne' => true,
-            'required' => true,
-          ],
-         'img' => [
-           'name' => 'Фотография',
-            'element' => 'input',
-            'type' => 'file',
-            'required' => true,
-          ],
-         'text' => [
-           'name' => 'Описание',
-            'element' => 'textarea',
-            'type' => 'text',
-            'required' => true,
-          ],
         ],
-        ],
-    
-        'lessons' => [
-          'menuName' => 'Предметы',
-          'fields'  => [
-          'title' => [
-           'name' => 'Название предмета',
-            'element' => 'input',
-            'type' => 'text',
-            'required' => true,
-          ],
-         'tags' => [
-           'name' => 'Предмет',
-            'element' => 'input',
-            'type' => 'hidden',
-           'data' => [
-              'Искусственный интеллект',
-              'Графический дизайн',
-              'Робототехника',
-              'ЧПУ программирование',
-              'Векторная графика',
-              'Информатика',
-              'Основы электроники',
+        'galery' => [
+            'menuName' => 'Фотографии',
+            'fields' => [                
+                'tags_next' => [
+                    'name' => 'Теги картинок',
+                    'element' => 'input',
+                    'type' => 'hidden',
+                    'data' => ["Эстетическая трихология", "Стрижка мужская", "Стрижка женская", "Стрижка детская", "СПА уходовые процедуры", "Окрашивание", "Биозавивка", "Патронажная услуга"],
+                    'selectOne' => true,
+                    'required' => false,
+                ],
+
+                'img' => [
+                    'name' => 'Картинки для галереи',
+                    'element' => 'input',
+                    'type' => 'file',
+                    'required' => true,
+                ],
             ],
-           'selectOne' => true,
-            'required' => true,
-          ],
-         'text' => [
-           'name' => 'Описание',
-            'element' => 'textarea',
-            'type' => 'text',
-            'required' => true,
-          ],
-         'img' => [
-           'name' => 'Фотография',
-            'element' => 'input',
-            'type' => 'file',
-            'required' => true,
-          ],
         ],
+        'comment' => [
+            'menuName' => 'Отзывы',
+            'fields' => [
+                'title' => [
+                    'name' => 'ФИО',
+                    'element' => 'input',
+                    'type' => 'text',
+                    'required' => true,
+                ],
+
+                'text' => [
+                    'name' => 'Текст отзыва',
+                    'element' => 'textarea',
+                    'type' => 'text',
+                    'required' => true,
+                ],
+
+                'img' => [
+                    'name' => 'Фотография',
+                    'element' => 'input',
+                    'type' => 'file',
+                    'required' => true,
+                ],
+            ],
         ],
-    
-        'creativity' => [
-          'menuName' => 'Творчество',
-          'fields'  => [
-          'title' => [
-           'name'  => 'title', 
-            'element' => 'input',
-            'type' => 'text',
-            'required' => true,
-          ],
-         'text' => [
-           'name' => 'Описание',
-            'element' => 'textarea',
-            'type' => 'text',
-            'required' => true,
-          ],
-         'img' => [
-           'name' => 'Изображения',
-            'element' => 'input',
-            'type' => 'file',
-            'required' => true,
-          ],
-        ],
-      ],
+        
     ];
-    
 }

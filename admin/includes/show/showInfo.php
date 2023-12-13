@@ -51,7 +51,20 @@ $tableName = formatstr($_GET['tab_name']);
                                 placeholder="<?php print_r($fieldData['name']); ?>" 
                                 <?php if ($fieldData['required'] == true) {print_r('required = true');} ?>">
                             <?php }
-                        } ?>    
+                        } ?>   
+                        
+                        <?php if ($fieldData['element'] == 'select') { 
+                            $dataMass = R::findAll($fieldData['options']);?>
+
+                            <label><?php print_r($fieldData['name']); ?></label>
+                            <<?php print_r($fieldData['element']); ?>
+                            name="<?php print_r($fieldName); ?>"
+                            >
+                            <?php foreach ($dataMass as $element => $value) { ?>
+                                <option value="<?php print_r($value['title']); ?>"><?php print_r($value['title']); ?></option>
+                            <?php } ?>
+                            <<?php print_r($fieldData['element']); ?>>
+                        <?php }?>
 
                         <?php if ($fieldData['element'] == 'textarea') {?>
                             <label><?php print_r($fieldData['name']); ?></label>

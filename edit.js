@@ -128,9 +128,7 @@ if (id_services) {
                         <p>${response[i].name}</p>
                         <p>${response[i].type}</p>
                     </div>
-
                     <h2>${response[i].price} Р.</h2>
-
                 </li>
             `);
         }
@@ -145,7 +143,7 @@ getData("shares").then((response) => {
     block.append(`
         <div class="shares-card">
         <img src="admin/img/${stringToImageArray(element.img)}" alt="">
-        <h2><span>${element.oldprice}</span> ${element.newprice} </h2>
+        <h2><span>${element.oldprice} Р.</span> ${element.newprice} Р.</h2>
         <p> ${element.title} </p>
         <button>Подробнее</button>
         </div>
@@ -154,13 +152,28 @@ getData("shares").then((response) => {
 });
 
 getData("galery").then((response) => {
-  let block = $(".galery_imgs").empty();
-  response.forEach((element) => {
+  let block = $(".galery_imgs__main").empty();
+  const maxImagesToShow = 6;
+  response.slice(0, maxImagesToShow).forEach((element) => {
     block.append(`
-        <div class="galery_imgs__img" data_tag="${element.tags_next}">
-            <img src="admin/img/${stringToImageArray(element.img)[0]}" alt="">
+        <div class="galery_imgs__img item" data_tag="${element.tags_next}">
+          <img src="admin/img/${stringToImageArray(element.img)[0]}" alt="">
+        </div>
+      `);
+    // }
+  });
+});
+
+getData("galery").then((response) => {
+  let block = $(".galery_imgs__full").empty();
+  response.forEach((element) => {
+    for (let i = 0; i < stringToImageArray(element.img).length; i++) {
+      block.append(`
+        <div class="galery_imgs__img item" data_tag="${element.tags_next}">
+            <img src="admin/img/${stringToImageArray(element.img)[i]}" alt="">
         </div>
     `);
+    }
   });
 });
 
@@ -171,9 +184,24 @@ getData("comment").then((response) => {
         <div class="card">
             <img src="admin/img/${stringToImageArray(element.img)[0]}" alt="">
             <h2>${element.title}</h2>
-            <p>
+            
                 ${element.text}
-            </p>
+            
+        </div>
+    `);
+  });
+});
+
+getData("comment").then((response) => {
+  const maxItemsToShow = 3;
+  let block = $(".card-list").empty();
+  // response.forEach((element) => {
+  response.slice(0, maxItemsToShow).forEach((element) => {
+    block.append(`
+        <div class="card">
+            <img src="admin/img/${stringToImageArray(element.img)[0]}" alt="">
+            <h2>${element.title}</h2>
+                ${element.text}
         </div>
     `);
   });
